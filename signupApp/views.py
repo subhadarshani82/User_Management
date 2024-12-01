@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from . models import *
 # Create your views here.
 def userCreate(request):
     if request.method =='POST':
@@ -11,7 +11,9 @@ def userCreate(request):
         age=request.POST['age']
         dob=request.POST['dob']
         gender = request.POST['gender']
-        language=request.POST['language']
+        language=request.POST.getlist('language')
+        lang=','.join(language)
         qualification = request.POST['qualification']
         print(name,address,password,email,contact,age,dob,gender,language,qualification)
+        data=Signup(name)
     return render(request,'create_user.html')
