@@ -10,7 +10,41 @@
 <body>
     <h2>User View</h2>  
     <table border="2">
-        
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Contact</th>
+            <th>Age</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Language</th>
+            <th>Qualification</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>{{d.id}}</td>
+                <td>{{d.name}}</td>
+                <td>{{d.address}}</td>
+                <td>{{d.email}}</td>
+                <td>{{d.password}}</td>
+                <td>{{d.contact}}</td>
+                <td>{{d.age}}</td>
+                <td>{{d.dob}}</td>
+                <td>{{d.gender}}</td>
+                <td>{{d.language}}</td>
+                <td>{{d.qualification}}</td>
+                <td>
+                    <a href="">Edit</a>
+                    <a href="">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 </body>
 </html>

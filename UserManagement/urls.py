@@ -20,4 +20,5 @@ from signupApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('createUser/',views.userCreate,name='createUser'),
+    path('userView/',views.userView,name='userView'),
 ]
