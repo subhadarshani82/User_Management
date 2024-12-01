@@ -76,8 +76,11 @@ WSGI_APPLICATION = 'UserManagement.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'user_db',
+        'USER':'root',
+        'PASSWORD':'admin'
+        
     }
 }
 
