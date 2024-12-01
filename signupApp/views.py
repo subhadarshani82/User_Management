@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from . models import *
 # Create your views here.
 def userCreate(request):
@@ -23,3 +23,36 @@ def userCreate(request):
 def userView(request):
     data=Signup.objects.all()
     return render(request,'view_user.html',{'data':data})
+
+def deleteUser(request,id):
+    data=Signup.objects.get(id=id)
+    data.delete()
+    return redirect('userView')
+def UpdateUser(request,id):
+    data=Signup.objects.get(id=id)
+    if request.method =='POST':
+        name=request.POST.get('name')
+        address=request.POST.get('address')
+        email=request.POST.get('email')
+        password=request.POST.get('password')
+        contact=request.POST.get('contact')
+        age=request.POST.get('age')
+        dob=request.POST.get('dob')
+        gender = request.POST.get('gender')
+        language=request.POST.getlist('language')
+        lang=','.join(language)
+        qualification = request.POST.get('qualification')
+        data.name=name
+        data.address=address
+        data.email=email
+        data.password=password
+        data.contact=contact
+        data.age=age
+        data.dob=dob
+        data.gender=gender
+        data.language=lang
+        data.qualification=qualification
+        data.save()
+        
+    return render(request,'updateUser.html',{'data':data})
+    
