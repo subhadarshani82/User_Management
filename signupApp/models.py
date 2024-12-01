@@ -6,12 +6,12 @@ class Signup(models.Model):
     address=models.CharField(max_length=50)
     email=models.EmailField()
     password=models.CharField(max_length=50)
-    contact =models.IntegerField
+    contact =models.IntegerField()
     age=models.IntegerField()
     dob = models.DateField()
     gender = models.CharField(max_length=50)
     language=models.CharField(max_length=50)
-    qualigication =models.CharField(max_length=50)
+    qualification =models.CharField(max_length=50)
     
     def __str__(self):
         return self.name

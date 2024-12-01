@@ -14,6 +14,12 @@ def userCreate(request):
         language=request.POST.getlist('language')
         lang=','.join(language)
         qualification = request.POST['qualification']
-        print(name,address,password,email,contact,age,dob,gender,language,qualification)
-        data=Signup(name)
+        print(name,address,password,email,contact,age,dob,gender,lang,qualification)
+        data=Signup(name=name,address=address,password=password,email=email,contact=contact,age=age,dob=dob,gender=gender,language=lang,qualification=qualification)
+        data.save()
     return render(request,'create_user.html')
+
+
+def userView(request):
+    data=Signup.objects.all()
+    return render(request,'view_user.html',{'data':data})
